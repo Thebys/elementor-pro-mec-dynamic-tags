@@ -262,3 +262,73 @@ class Elementor_Dynamic_Tag_MEC_Event_End_Date extends \Elementor\Core\DynamicTa
         }
     }
 }
+class Elementor_Dynamic_Tag_MEC_Event_Start_Time extends \Elementor\Core\DynamicTags\Tag
+{
+    public function get_name()
+    {
+        return 'mec-event-start-time';
+    }
+    public function get_title()
+    {
+        return 'Event Start Time';
+    }
+    public function get_group()
+    {
+        return 'mec-event';
+    }
+    public function get_categories()
+    {
+        return ['text'];
+    }
+    public function render()
+    {
+        global $post;
+        if (is_singular(['mec-events', 'mec_esb'])) {
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'mec_events';
+            $query = $wpdb->prepare("SELECT time_start FROM $table_name WHERE post_id = %d", $post->ID);
+            $start_time_seconds = $wpdb->get_var($query);
+            $time_format = get_option('time_format');
+            $datetime = new DateTime();
+            $datetime->setTimestamp($start_time_seconds);
+            echo $datetime->format($time_format);
+        } else {
+            return;
+        }
+    }
+}
+class Elementor_Dynamic_Tag_MEC_Event_End_Time extends \Elementor\Core\DynamicTags\Tag
+{
+    public function get_name()
+    {
+        return 'mec-event-end-time';
+    }
+    public function get_title()
+    {
+        return 'Event End Time';
+    }
+    public function get_group()
+    {
+        return 'mec-event';
+    }
+    public function get_categories()
+    {
+        return ['text'];
+    }
+    public function render()
+    {
+        global $post;
+        if (is_singular(['mec-events', 'mec_esb'])) {
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'mec_events';
+            $query = $wpdb->prepare("SELECT time_end FROM $table_name WHERE post_id = %d", $post->ID);
+            $end_time_seconds = $wpdb->get_var($query);
+            $time_format = get_option('time_format');
+            $datetime = new DateTime();
+            $datetime->setTimestamp($end_time_seconds);
+            echo $datetime->format($time_format);
+        } else {
+            return;
+        }
+    }
+}

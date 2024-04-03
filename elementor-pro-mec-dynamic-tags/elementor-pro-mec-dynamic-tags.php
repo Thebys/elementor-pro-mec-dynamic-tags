@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Elementor Pro - MEC Event Dynamic Tags
  * Description: This plugin adds Elementor Pro Dynamic Tags for single MEC Event. Ideal for using ME Calendar to manage events and using Elementor to display them. Beware - This plugin overrides MEC single event template when active to allow for native Elementor Template.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Tomáš Biheler
  * Author URI:  https://biheler.eu
  *
@@ -36,7 +36,9 @@ function elmedyta_register_mec_event_dynamic_tags($dynamic_tags_manager)
     $dynamic_tags_manager->register(new Elementor_Dynamic_Tag_MEC_Event_Organizer_Website());
     $dynamic_tags_manager->register(new Elementor_Dynamic_Tag_MEC_Event_Cost());
     $dynamic_tags_manager->register(new Elementor_Dynamic_Tag_MEC_Event_Start_Date());
+    $dynamic_tags_manager->register(new Elementor_Dynamic_Tag_MEC_Event_Start_Time());
     $dynamic_tags_manager->register(new Elementor_Dynamic_Tag_MEC_Event_End_Date());
+    $dynamic_tags_manager->register(new Elementor_Dynamic_Tag_MEC_Event_End_Time());
 }
 add_action('elementor/dynamic_tags/register', 'elmedyta_register_mec_event_dynamic_tags');
 

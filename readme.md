@@ -23,7 +23,9 @@ Build Single Modern Events Calendar page using Elementor with content from Dynam
     Event_Organizer_Website
     Event_Cost
     Event_Start_Date
+    Event_Start_Time
     Event_End_Date
+    Event_End_Time
 
 # Remarks
 - So far no support for multiple events / calendar views.

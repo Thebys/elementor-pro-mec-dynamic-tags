@@ -1,0 +1,6 @@
+#Everything but elementor-pro-mec-dynamic-tags folder:
+*
+!elementor-pro-mec-dynamic-tags
+!elementor-pro-mec-dynamic-tags/*
+!.gitignore
+
